@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>像素风头像生成器</title>
+  <script type="text/javascript" src="jquery-1.9.0.js"></script>
+</head>
+<body>
+<div id="wrapper">
+  <h1>像素风头像生成器</h1>
+  <div class="imgArea">
+    <img src="" style="display:none; border: 2px solid #facbba;" id="buffer-img">
+    <img src="" style="display:none; border: 2px solid #666;" id="photo-img">
+    <canvas id="myCanvas" width="100" height="100" style="border:1px solid #d3d3d3;">
+    Your browser does not support the HTML5 canvas tag.
+    </canvas>
+  </div>
+  <div class="ctlArea">
+    <p>
+      背景色：
+      <select name="backColor" id="back-color">
+        <option value="rmd" selected>随机</option>
+        <option value="transparent">透明</option>
+        <option value="lightblue">lightblu</option>
+        <option value="lightcoral">lightcoral</option>
+        <option value="lightcyan">lightcyan</option>
+        <option value="lightgoldenrodyellow">lightgoldenrodyellow</option>
+        <option value="lightgreen">lightgreen</option>
+        <option value="lightgrey">lightgrey</option>
+        <option value="lightpink">lightpink</option>
+        <option value="lightsalmon">lightsalmon</option>
+        <option value="lightseagreen">lightseagreen</option>
+        <option value="lightskyblue">lightskyblue</option>
+        <option value="lightslategray">lightslategray</option>
+        <option value="lightsteelblue">lightsteelblue</option>
+        <option value="lightyellow">lightyellow</option>
+      </select>
+    </p>
+    <p>
+      前景色：
+      <input type="text" name="foreColor" id="fore-color"/>
+    </p>
+    <p>
+      头像大小：
+      <select name="imgSize" id="img-width">
+        <option value="100" selected>100X100</option>
+        <option value="60">60X60</option>
+        <option value="200">200X200</option>
+        <option value="300">300X300</option>
+        <option value="400">400X400</option>
+        <option value="500">500X500</option>
+      </select>
+    </p>
+    <p>
+      画笔大小：
+      <select name="imgSize" id="pen-size">
+        <option value="10" selected>10X10</option>
+        <option value="20">20X20</option>
+        <option value="30">30X30</option>
+        <option value="40">40X40</option>
+        <option value="50">50X50</option>
+        <option value="60">60X60</option>
+      </select>
+    </p>
+    <p>
+      <a href="javascript:;" id="mkephoto" onclick="makePhoto(getArgs());">生成</a>
+      <a href="javascript:;" title="在生成的头像上&#13;右键图片另存为" onclick="traggleImg();">保存图片</a>
+      <a href="javascript:;" title="重新显示上张生成的图形" onclick="traggleBuffer();">上一张</a>
+    </p>
+  </div>
+</div>
+
+
+<style type="text/css" media="screen">
+html {
+  margin: 0;
+  padding: 0;
+  font: 62.5%/1 Georgia, "Microsoft Yahei", sans-serif;
+}
+body {
+  font: 1.2/1.5;
+}
+  
+#wrapper {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.imgArea {
+  text-align: center;
+  margin: 20px 0;
+}
+.ctlArea{
+  text-align: center;
+  border: 1px dashed #c0c0c0;
+  border-radius: 4px;
+}
+
+</style>
+
+<script type="text/javascript">
+function traggleImg () {
+  document.getElementById("photo-img").style.display = "inline";
+  document.getElementById("myCanvas").style.display = "none";
+}
+
+function traggleBuffer () {
+  document.getElementById("myCanvas").style.display = "none";
+  document.getElementById("buffer-img").style.display = "inline";
+}
+
+function getArgs () {
+  var argobj = {
+    "backColor": document.getElementById("back-color").value,
+    "imgWidth": document.getElementById("img-width").value,
+    "penColor": document.getElementById("fore-color").value,
+    "penSize": document.getElementById("pen-size").value
+    
+  };
+  console.log(argobj);
+  return argobj;
+  
+}
+
+
+function makePhoto () {
+
+  var img = document.getElementById("photo-img");
+  var bufferImg = document.getElementById("buffer-img");
+  var srcStr = img.src;
+  bufferImg.src = srcStr;
+
+  var args = arguments;
+  var backColor = "transparent";
+  var imgWidth = 100;
+  var penSize = 10;
+  var penColor = "rgb("+getRemodInt(255)+","+getRemodInt(255)+","+getRemodInt(255)+")";
+  var c = document.getElementById("myCanvas");
+  img.style.display = "none";
+  c.style.display = "inline";
+  bufferImg.style.display = "none";
+  
+  if (args.length !== 0) {
+    args = args[0];
+    if (args.backColor) {
+      backColor = args.backColor;
+      if (backColor === "rmd") {
+        backColor = "rgb("+getRemodInt(255)+","+getRemodInt(255)+","+getRemodInt(255)+")";
+      }
+    }
+    if (args.imgWidth) {
+      imgWidth = parseInt(new Number(args.imgWidth));
+    }
+    if (args.penColor && args.penColor !== "") {
+      penColor = args.penColor;
+    }
+    if (args.penSize) {
+      penSize =  parseInt(new Number(args.penSize));
+    }
+  }
+  c.width = imgWidth;
+  c.height = imgWidth;
+
+  var ctx=c.getContext("2d");
+  ctx.fillStyle="green";
+  //ctx.fillRect(40,0,10,10);
+
+  // x从cab 0-50 取 值，再拿这个值取到对称数，
+  // y 从0 到 100 做10 次增加
+
+  ctx.fillStyle = backColor;
+  //console.log(backColor);
+  ctx.fillRect(0, 0, imgWidth, imgWidth);
+  ctx.fillStyle = penColor;
+  for (var yl = 0;  yl <= imgWidth; yl += penSize) {
+    (function(rmd){
+      console.log(rmd);
+      for (var i = 0; i < rmd; i++) {
+        var x1 = getRemodIntByPenSize(imgWidth / 2, penSize);
+        //console.log(x1);
+        var x2 = getSymmetry(x1, imgWidth, penSize);
+        ctx.fillRect(x1, yl, penSize, penSize);
+        ctx.fillRect(x2, yl, penSize, penSize);
+      }
+    })(getRemodInt(imgWidth / penSize / 2));
+  }
+
+  img.src = c.toDataURL();
+  
+}
+
+//从一个点a 拿到对称点
+//带入imgwidth 与 penSize
+// 100 / 2 = 50  
+function getSymmetry (a, imgWidth, penSize) {
+  return imgWidth -a - penSize;
+}
+function getRemodIntBy10 (alt) {
+  var rmd = 0;
+  while (true) {
+    rmd = Math.floor(Math.random() * alt);
+    if (rmd % 10 === 0) {
+      return rmd;
+    }
+  }
+}
+
+function getRemodIntByPenSize (alt, penSize) {
+  var rmd = 0;
+  while (true) {
+    rmd = Math.floor(Math.random() * alt);
+    if (rmd % penSize === 0) {
+      return rmd ;
+    }
+  }  
+}
+//返回指定范围以内的整数 传入3返回 132 
+function getRemodInt(alt) {
+  return Math.floor(Math.random() * alt) + 1;
+}
+
+makePhoto();
+</script>
+</body>
+</html>

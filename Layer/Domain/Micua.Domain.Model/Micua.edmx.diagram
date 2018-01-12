@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="117ab8c47b964295b600cc053a9a6ba8" Name="Diagram1">
+        <EntityTypeShape EntityType="MicuaModel.Blog" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicuaModel.BlogMeta" Width="1.5" PointX="4" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicuaModel.Comment" Width="1.5" PointX="7.5" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicuaModel.CommentMeta" Width="1.5" PointX="9.75" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicuaModel.Link" Width="1.5" PointX="5.25" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicuaModel.Option" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicuaModel.Post" Width="1.5" PointX="5.25" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicuaModel.PostMeta" Width="1.5" PointX="5.25" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicuaModel.Term" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicuaModel.TermRelation" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicuaModel.User" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicuaModel.UserMeta" Width="1.5" PointX="0.75" PointY="15.875" IsExpanded="true" />
+        <AssociationConnector Association="MicuaModel.FK_dbo_Blog_dbo_User_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="MicuaModel.FK_dbo_BlogMeta_dbo_Blog_BlogId" ManuallyRouted="false" />
+        <AssociationConnector Association="MicuaModel.FK_dbo_Comment_dbo_Blog_BlogId" ManuallyRouted="false" />
+        <AssociationConnector Association="MicuaModel.FK_dbo_Link_dbo_Blog_BlogId" ManuallyRouted="false" />
+        <AssociationConnector Association="MicuaModel.FK_dbo_Post_dbo_Blog_BlogId" ManuallyRouted="false" />
+        <AssociationConnector Association="MicuaModel.FK_dbo_Comment_dbo_Comment_ParentId" ManuallyRouted="false" />
+        <AssociationConnector Association="MicuaModel.FK_dbo_Comment_dbo_Post_PostId" ManuallyRouted="false" />
+        <AssociationConnector Association="MicuaModel.FK_dbo_Comment_dbo_User_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="MicuaModel.FK_dbo_CommentMeta_dbo_Comment_CommentId" ManuallyRouted="false" />
+        <AssociationConnector Association="MicuaModel.FK_dbo_Link_dbo_Link_ParentId" ManuallyRouted="false" />
+        <AssociationConnector Association="MicuaModel.FK_dbo_Post_dbo_Post_ParentId" ManuallyRouted="false" />
+        <AssociationConnector Association="MicuaModel.FK_dbo_Post_dbo_User_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="MicuaModel.FK_dbo_PostMeta_dbo_Post_PostId" ManuallyRouted="false" />
+        <AssociationConnector Association="MicuaModel.FK_dbo_Term_dbo_Term_ParentId" ManuallyRouted="false" />
+        <AssociationConnector Association="MicuaModel.FK_dbo_UserMeta_dbo_User_UserId" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

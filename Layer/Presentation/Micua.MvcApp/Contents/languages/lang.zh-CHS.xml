@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<languages lang="zh-CN">
+  <dashboard>仪表盘</dashboard>
+  <toggle_navigation>切换显示菜单</toggle_navigation>
+  <username>用户名</username>
+  <email>邮箱</email>
+  <password>密码</password>
+  <confirm>确认密码</confirm>
+  <sign_in>登入</sign_in>
+  <register>注册</register>
+  <input_your_username_or_email>请输入用户名/邮箱</input_your_username_or_email>
+  <input_your_password>请输入密码</input_your_password>
+  <input_your_confirm>请确认密码</input_your_confirm>
+  <remember_me>记住我的登陆信息</remember_me>
+</languages>

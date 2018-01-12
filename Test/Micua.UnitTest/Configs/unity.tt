@@ -1,0 +1,31 @@
+﻿<#@ template language="C#" hostspecific="true"#><#@ include file="../../../Utilities.ttinclude"#><#@ output extension=".config"#><?xml version="1.0" encoding="utf-8" ?>
+<unity xmlns="http://schemas.microsoft.com/practices/2010/unity">
+<#foreach(var item in EntityTypes){#>
+
+  <!--<#=item.Name#>-->
+  <alias alias="I<#=item.Name#>Service" type="Micua.Domain.Service.I<#=item.Name#>Service, Micua.Domain.Service"/>
+  <alias alias="<#=item.Name#>Service" type="Micua.Domain.Service.<#=item.Name#>Service, Micua.Domain.Service"/>
+<#}#>
+
+  <sectionExtension type="Microsoft.Practices.Unity.InterceptionExtension.Configuration.InterceptionConfigurationExtension, Microsoft.Practices.Unity.Interception.Configuration" />
+  
+  <container>
+    <register type="Micua.Core.Caching.ICacheProvider, Micua.Core" mapTo="Micua.Core.Caching.DefaultCacheProvider, Micua.Core"/>
+    <register type="Micua.Core.Session.ISessionProvider, Micua.Core" mapTo="Micua.Core.Session.DefaultSessionProvider, Micua.Core"/>
+    <register type="Micua.Core.Localization.ILocalizationProvider, Micua.Core" mapTo="Micua.Core.Localization.XmlLocalizationProvider, Micua.Core"/>
+    <register type="System.Web.Mvc.IControllerFactory, System.Web.Mvc" mapTo="Micua.Core.IoC.Unity.UnityControllerFactory, Micua.Core"/>
+  </container>
+  
+  <container name="ServiceContainer">
+<#foreach(var item in EntityTypes){#>
+
+    <register type="I<#=item.Name#>Service" mapTo="<#=item.Name#>Service">
+      <interceptor type="InterfaceInterceptor" />
+      <lifetime type="singleton" />
+      <policyInjection />
+    </register>
+<#}#>
+  
+  </container>  
+
+</unity>

@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="@ViewBag.Title" />
+    <meta name="keywords" content="@ViewBag.Title" />
+    <meta name="author" content="@Author" />
+    <meta name="generator" content="@Generator" />
+    <title>@ViewBag.Title - Powered by @Generator</title>
+    <link rel="shortcut icon" href="@SiteUrl/favicon.ico" />
+    <!-- Include Basic Styles -->
+    <link href="@Url.ThemeUrl("assets/lib/normalize/normalize.css")" rel="stylesheet" />
+    <link href="@Url.ThemeUrl("assets/css/style.css")" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <h1 class="logo"><a href="/">@ViewBag.Title</a></h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">文件</a></li>
+            <li><a href="#">编辑</a></li>
+            <li><a href="#">视图</a></li>
+            <li><a href="#">项目</a></li>
+            <li><a href="#">生成</a></li>
+            <li><a href="#">调试</a></li>
+            <li><a href="#">团队</a></li>
+        </ul>
+    </nav>
+    @RenderBody()
+    <footer>
+        <div class="links">
+            <a href="javascript:;">关于我们</a><b>|</b>
+            <a href="javascript:;">服务条款</a><b>|</b>
+            <a href="javascript:;">会员服务</a><b>|</b>
+            <a href="javascript:;">法律声明</a><b>|</b>
+            <a href="javascript:;">隐私声明</a><b>|</b>
+            <a href="javascript:;">广告服务</a><b>|</b>
+            <a href="javascript:;">联系我们</a><b>|</b>
+            <a href="javascript:;">站点地图</a><b>|</b>
+            <a href="javascript:;">信息举报</a><b>|</b>
+            <a href="javascript:;">广告服务</a><b>|</b>
+            <a href="javascript:;">联系我们</a><b>|</b>
+            <a href="javascript:;">站点地图</a><b>|</b>
+            <a href="javascript:;">信息举报</a>
+        </div>
+        <div class="copyright"> <i>@SiteInfo("site_icp")</i> <span>@Copyright</span> </div>
+        <span class="toy"> <a href="@SiteUrl"><img src="@Url.ThemeUrl("assets/img/toy.png")" alt="hello!"></a> </span>
+    </footer>
+    <!-- Include Basic Scripts -->
+    @Scripts.Render("~/assets/js/base.js")
+    <!-- Include Other Plugin Scripts -->
+    @*@Scripts.Render("~/assets/js/validate.js")*@
+    <!-- Include Custom Scripts -->
+    @RenderSection("Scripts", false)
+</body>
+</html>

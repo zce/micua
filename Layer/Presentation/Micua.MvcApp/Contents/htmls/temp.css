@@ -1,0 +1,97 @@
+﻿html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            border: 1px solid transparent;
+            background-color: #444349;
+            font-family: "Microsoft YaHei";
+            font-weight: 300;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: .3;
+            z-index: -1;
+        }
+
+        .form-main {
+            background: #fff;
+            padding: 20px 30px 30px;
+            max-width: 80%;
+            margin: 40px auto 0;
+            border-radius: 3px;
+            box-shadow: 0 0 15px rgba(0,0,0,.3);
+        }
+
+        @media (min-width: 760px) {
+            .form-main {
+                max-width: 380px;
+                margin: 140px auto 0;
+            }
+        }
+
+        .form-main h2 {
+            text-align: center;
+            font-size: 26px;
+        }
+
+        .form-main .avator {
+            display: block;
+            margin: 30px auto;
+            border-radius: 50%;
+            width: 44%;
+            border: 1px solid #f5f5f5;
+            padding: 4px;
+            overflow: hidden;
+        }
+
+            .form-main .avator img {
+                width: 100%;
+                z-index: -1;
+            }
+
+        .form-main .form-main-heading,
+        .form-main .checkbox {
+            margin-bottom: 20px;
+        }
+
+        .form-main .checkbox {
+            font-weight: normal;
+        }
+
+        .form-main .form-control {
+            position: relative;
+            height: auto;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+            .form-main .form-control:focus {
+                z-index: 2;
+            }
+
+        .input-group-top {
+            margin-bottom: -1px;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .input-group-middle {
+            margin-bottom: -1px;
+            border-radius: 0;
+        }
+
+        .input-group-bottom {
+            margin-bottom: 30px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }

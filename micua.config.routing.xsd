@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://schemas.wedn.net/config/route/2014" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="routing">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ignores">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="add">
+                <xs:complexType>
+                  <xs:attribute name="url" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="maps">
+          <xs:complexType>
+            <xs:sequence minOccurs="0">
+              <xs:element maxOccurs="unbounded" name="map">
+                <xs:complexType>
+                  <xs:sequence minOccurs="0">
+                    <xs:choice maxOccurs="unbounded">
+                      <xs:element name="parameters">
+                        <xs:complexType mixed="true">
+                          <xs:sequence minOccurs="0">
+                            <xs:element maxOccurs="unbounded" name="add">
+                              <xs:complexType>
+                                <xs:attribute name="name" type="xs:string" use="required" />
+                                <xs:attribute name="value" type="xs:string" use="optional" />
+                                <xs:attribute name="constraint" type="xs:string" use="optional" />
+                              </xs:complexType>
+                            </xs:element>
+                          </xs:sequence>
+                        </xs:complexType>
+                      </xs:element>
+                      <xs:element name="namespaces">
+                        <xs:complexType mixed="true">
+                          <xs:sequence minOccurs="0">
+                            <xs:element name="add" maxOccurs="unbounded">
+                              <xs:complexType>
+                                <xs:attribute name="value" type="xs:string" use="required" />
+                              </xs:complexType>
+                            </xs:element>
+                          </xs:sequence>
+                        </xs:complexType>
+                      </xs:element>
+                    </xs:choice>
+                  </xs:sequence>
+                  <xs:attribute name="name" type="xs:string" use="required" />
+                  <xs:attribute name="domain" type="xs:string" use="optional" />
+                  <xs:attribute name="url" type="xs:string" use="required" />
+                  <xs:attribute name="controller" type="xs:string" use="optional" />
+                  <xs:attribute name="action" type="xs:string" use="optional" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="default" type="xs:string" use="required" />
+            <xs:attribute name="enable" type="xs:boolean" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="areas">
+          <xs:complexType>
+            <xs:sequence minOccurs="0">
+              <xs:element maxOccurs="unbounded" name="area">
+                <xs:complexType>
+                  <xs:sequence minOccurs="0">
+                    <xs:element maxOccurs="unbounded" name="route">
+                      <xs:complexType>
+                        <xs:sequence minOccurs="0">
+                          <xs:element minOccurs="0" name="parameters">
+                            <xs:complexType mixed="true">
+                              <xs:sequence minOccurs="0">
+                                <xs:element maxOccurs="unbounded" name="add">
+                                  <xs:complexType>
+                                    <xs:attribute name="name" type="xs:string" use="required" />
+                                    <xs:attribute name="value" type="xs:string" use="optional" />
+                                    <xs:attribute name="constraint" type="xs:string" use="optional" />
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element minOccurs="0" name="namespaces">
+                            <xs:complexType mixed="true">
+                              <xs:sequence minOccurs="0">
+                                <xs:element name="add">
+                                  <xs:complexType>
+                                    <xs:attribute name="value" type="xs:string" use="required" />
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="name" type="xs:string" use="required" />
+                        <xs:attribute name="domain" type="xs:string" use="optional" />
+                        <xs:attribute name="url" type="xs:string" use="required" />
+                        <xs:attribute name="controller" type="xs:string" use="optional" />
+                        <xs:attribute name="action" type="xs:string" use="optional" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="name" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="enable" type="xs:boolean" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="extend" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

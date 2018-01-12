@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<body>
+    <canvas id="myCanvas" width="100" height="100" style="border:1px solid #d3d3d3;">
+        Your browser does not support the HTML5 canvas tag.
+    </canvas>
+    <script>
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        //把画笔定义成绿色，
+        ctx.fillStyle = "green";
+        //在(40,0) 这个 地方 画下 长为10，宽也为10 的一个实心矩形
+        ctx.fillRect(40, 0, 10, 10);
+
+        //从一个点a 拿到对称点
+        //带入imgwidth 与 penSize
+        // 100 / 2 = 50  
+        function getSymmetry(a, imgWidth, penSize) {
+            return imgWidth - a - penSize;
+        }
+
+        //返回指定范围以内的整数 传入3返回 132
+        function getRemodInt(alt) {
+            return Math.floor(Math.random() * alt) + 1;
+        }
+
+        (function (rmd) {
+            console.log(rmd);
+            for (var i = 0; i < rmd; i++) {
+                var x1 = getRemodIntByPenSize(imgWidth / 2, penSize);
+                //console.log(x1);
+                var x2 = getSymmetry(x1, imgWidth, penSize);
+                ctx.fillRect(x1, yl, penSize, penSize);
+                ctx.fillRect(x2, yl, penSize, penSize);
+            }
+        })(getRemodInt(imgWidth / penSize / 2));
+
+        function getRemodIntByPenSize(alt, penSize) {
+            var rmd = 0;
+            while (true) {
+                rmd = Math.floor(Math.random() * alt);
+                if (rmd % penSize === 0) {
+                    return rmd;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

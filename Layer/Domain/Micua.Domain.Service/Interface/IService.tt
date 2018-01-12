@@ -1,0 +1,23 @@
+﻿<#@ template language="C#" hostspecific="true"#><#@ include file="../../../../Utilities.ttinclude"#><#@ output extension=".cs"#>// +----------------------------------------------------------------------
+// | Micua [ DO IT BATTER ! ]
+// +----------------------------------------------------------------------
+// | Copyright © 2014 Wedn.Net. All Rights Reserved.
+// +----------------------------------------------------------------------
+// | Summary : 服务接口实现 <IService>
+// +----------------------------------------------------------------------
+// | Author  : iceStone <ice@wedn.net>
+// +----------------------------------------------------------------------
+namespace Micua.Domain.Service
+{
+    using Micua.Domain.Model;
+<#foreach(var item in EntityTypes){#>
+
+    /// <summary>
+    /// <#=item.Name#>表 操作类接口 I<#=item.Name#>Repository
+    /// </summary>
+    /// <remarks>
+    ///  2013-11-18 19:06 Created By iceStone
+    ///  <#=DateTime.Now.ToString("yyyy-MM-dd HH:mm")#> Modified By iceStone
+    /// </remarks>
+    public partial interface I<#=item.Name#>Service : IService<int, <#=item.Name#>> { }
+<#}#>}

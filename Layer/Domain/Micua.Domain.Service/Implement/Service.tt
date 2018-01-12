@@ -1,0 +1,23 @@
+﻿<#@ template language="C#" hostspecific="true"#><#@ include file="../../../../Utilities.ttinclude"#><#@ output extension=".cs"#>// +----------------------------------------------------------------------
+// | Micua [ DO IT BATTER ! ]
+// +----------------------------------------------------------------------
+// | Copyright © 2014 Wedn.Net. All Rights Reserved.
+// +----------------------------------------------------------------------
+// | Summary : 服务实现 <Repository>
+// +----------------------------------------------------------------------
+// | Author  : iceStone <ice@wedn.net>
+// +----------------------------------------------------------------------
+namespace Micua.Domain.Service
+{
+    using Micua.Domain.Model;
+    using Micua.Domain.Repository;
+<#foreach(var item in EntityTypes){#>
+    public partial class <#=item.Name#>Service : ServiceBase<int, <#=item.Name#>>, I<#=item.Name#>Service
+    {
+        protected override IRepository<int, <#=item.Name#>> Repository
+        {
+            get { return DbSession.Instance.<#=item.Name#>Repository; }
+        }
+    }
+<#}#>
+}

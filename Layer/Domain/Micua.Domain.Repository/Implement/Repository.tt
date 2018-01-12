@@ -1,0 +1,16 @@
+﻿<#@ template language="C#" hostspecific="true"#><#@ include file="../../../../Utilities.ttinclude"#><#@ output extension=".cs"#>// +----------------------------------------------------------------------
+// | Micua [ DO IT BATTER ! ]
+// +----------------------------------------------------------------------
+// | Copyright © 2014 Wedn.Net. All Rights Reserved.
+// +----------------------------------------------------------------------
+// | Summary : 基于EF的仓储实现 <Repository>
+// +----------------------------------------------------------------------
+// | Author  : iceStone <ice@wedn.net>
+// +----------------------------------------------------------------------
+namespace Micua.Domain.Repository
+{
+    using Micua.Domain.Model;
+<#foreach(var item in EntityTypes){#>
+    public class <#=item.Name#>Repository : RepositoryBase<int, <#=item.Name#>>, I<#=item.Name#>Repository { internal <#=item.Name#>Repository() { } }
+<#}#>
+}

@@ -1,0 +1,77 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #><#@ assembly name="System.Core" #><#@ import namespace="System.Linq" #><#@ import namespace="System.Text" #><#@ import namespace="System.Collections.Generic" #><#@ output extension=".cs" #>// ***********************************************************************
+// Project          : Micua Infrastructure
+// Assembly         : Micua.Infrastructure.Utility
+// Author           : iceStone
+// Created          : 2014-01-05 11:27
+// 
+// Last Modified By : iceStone
+// Last Modified On : <#=DateTime.Now.ToString("yyyy-MM-dd HH:mm")#>
+// ***********************************************************************
+// <copyright file="Convert.cs" company="Wedn.Net">
+//     Copyright © 2014 Wedn.Net. All Rights Reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+
+namespace System
+{
+    /// <summary>
+    /// 转换拓展方法
+    /// </summary>
+    public static partial class Converter
+    {
+        #region Convert string type to other types
+<#
+IDictionary<string, KeyValuePair<string, string>> dictionary = new Dictionary<string, KeyValuePair<string, string>>
+{
+    {"bool",new KeyValuePair<string, string>("Boolean","布尔型")},
+    {"char",new KeyValuePair<string, string>("Char","无符号、数值、整数")},
+    {"decimal",new KeyValuePair<string, string>("Decimal","数值、十进制")},
+    {"double",new KeyValuePair<string, string>("Double","数值、浮点")},
+    {"float",new KeyValuePair<string, string>("Single","数值、浮点")},
+    {"byte",new KeyValuePair<string, string>("Byte","无符号、数值、整数")},
+    {"sbyte",new KeyValuePair<string, string>("SByte","有符号、数值、整数")},
+    {"short",new KeyValuePair<string, string>("Int16","有符号、数值、整数")},
+    {"ushort",new KeyValuePair<string, string>("UInt16","无符号、数值、整数")},
+    {"int",new KeyValuePair<string, string>("Int32","有符号、数值、整数")},
+    {"uint",new KeyValuePair<string, string>("UInt32","无符号、数值、整数")},
+    {"long",new KeyValuePair<string, string>("Int64","有符号、数值、整数")},
+    {"ulong",new KeyValuePair<string, string>("UInt64","无符号、数值、整数")},
+    {"DateTime",new KeyValuePair<string, string>("DateTime","时间")},
+    {"Guid",new KeyValuePair<string, string>("Guid","Guid")},
+};
+foreach (var item in dictionary)
+{#>
+
+        #region String to <#=item.Value.Key#> +static <#=item.Key#> To<#=item.Value.Key#>(this string s, <#=item.Key#> def = default(<#=item.Value.Key#>))
+        /// <summary>
+        /// String to <#=item.Value.Key#>(字符串 转换成 <#=item.Value.Value#>)
+        /// </summary>
+        /// <remarks>
+        ///  <#=DateTime.Now.ToString("yyyy-MM-dd HH:ss")#> Created By iceStone
+        /// </remarks>
+        /// <param name="s">String</param>
+        /// <param name="def">Default</param>
+        /// <returns>Byte</returns>
+        public static <#=item.Key#> To<#=item.Value.Key#>(this string s, <#=item.Key#> def = default(<#=item.Key#>))
+        {
+            <#=item.Key#> result;
+            return <#=item.Value.Key#>.TryParse(s, out result) ? result : def;
+        } 
+        #endregion
+<#}#>
+
+        #endregion
+	}
+}
+<#+
+public string GetDefault(string type)
+{
+    switch (type)
+    {
+        case "bool":
+            return "false";
+    }
+    return "0";
+}
+#>

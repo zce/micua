@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="@ViewBag.Title" />
+    <meta name="keywords" content="@ViewBag.Title" />
+    <meta name="author" content="@Author" />
+    <meta name="generator" content="@Generator" />
+    <title>@ViewBag.Title &lsaquo; @SiteInfo("site_name") - Powered by @Generator</title>
+    <link rel="shortcut icon" href="@SiteUrl/favicon.ico" />
+    @*@Styles.Render("~/assets/css/base.css", "~/assets/css/awesome.css", "~/assets/css/style.css")*@
+    <!-- Include Basic Styles -->
+    @Styles.Render("~/assets/css/base.css")
+    <!-- Include Other Plugin -->
+    @Styles.Render("~/assets/css/awesome.css")
+    @RenderSection("Styles", false)
+    <!-- Include Custom styles for this template -->
+    @Styles.Render("~/assets/css/style.css")
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="/contents/assets/lib/html5shiv/html5shiv.min.js"></script>
+        <script src="/contents/assets/lib/respond/respond.min.js"></script>
+    <![endif]-->
+</head>#428bca
+<body>
+    @RenderBody()
+    <!-- Include Basic Scripts -->
+    @Scripts.Render("~/assets/js/base.js")
+    <!-- Include Other Plugin Scripts -->
+    @*@Scripts.Render("~/assets/js/validate.js")*@
+    <!-- Include Custom Scripts -->
+    @RenderSection("Scripts", false)
+    @Scripts.Render("~/assets/js/script.js")
+</body>
+</html>

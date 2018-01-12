@@ -1,0 +1,182 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0-Design", "0-Design", "{2166D735-7DCC-4A64-BFE9-CFB7436D541F}"
+	ProjectSection(SolutionItems) = preProject
+		Design\README.md = Design\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Database", "1-Database", "{59A57303-7D32-4BB3-BD87-753C6FB30473}"
+	ProjectSection(SolutionItems) = preProject
+		Database\README.md = Database\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Layer", "3-Layer", "{E08E0235-0E09-44A1-831C-0C4206438F17}"
+	ProjectSection(SolutionItems) = preProject
+		Layer\README.md = Layer\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-Document", "2-Document", "{D57241AB-F7DF-42C8-B88B-4DC74513647C}"
+	ProjectSection(SolutionItems) = preProject
+		Document\README.md = Document\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4-Test", "4-Test", "{F51ACB11-A2E9-4DCB-AAE2-D8E9F87DDFA4}"
+	ProjectSection(SolutionItems) = preProject
+		Test\README.md = Test\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5-Publish", "5-Publish", "{F7EE23EB-E045-47CE-92A8-719DC2816EDA}"
+	ProjectSection(SolutionItems) = preProject
+		Publish\README.md = Publish\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6-Other", "6-Other", "{3C750116-B695-4595-B906-C3703086D223}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		CHANGELOG.html = CHANGELOG.html
+		CHANGELOG.md = CHANGELOG.md
+		Clear.bat = Clear.bat
+		LICENSE = LICENSE
+		micua.config.bundle.xsd = micua.config.bundle.xsd
+		micua.config.routing.xsd = micua.config.routing.xsd
+		micua.config.xsd = micua.config.xsd
+		micua.info.theme.xsd = micua.info.theme.xsd
+		README.md = README.md
+		Utilities.ttinclude = Utilities.ttinclude
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.0-Infrastructure", "3.0-Infrastructure", "{E086BC9B-AEC1-4268-8981-F99073EC84AB}"
+	ProjectSection(SolutionItems) = preProject
+		Layer\Infrastructure\README.md = Layer\Infrastructure\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.1-Domain", "3.1-Domain", "{34877268-AFCA-496D-A1AC-88E779D3AE4D}"
+	ProjectSection(SolutionItems) = preProject
+		Layer\Domain\README.md = Layer\Domain\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.2-Core", "3.2-Core", "{784AE9A1-655C-4B80-B9F2-7D8A1A24C1DA}"
+	ProjectSection(SolutionItems) = preProject
+		Layer\Core\README.md = Layer\Core\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.4-Presentation", "3.4-Presentation", "{86B23C53-C2D7-45BC-B657-7D6DCB9FF319}"
+	ProjectSection(SolutionItems) = preProject
+		Layer\Presentation\README.md = Layer\Presentation\README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Micua.Infrastructure.Utility", "Layer\Infrastructure\Micua.Infrastructure.Utility\Micua.Infrastructure.Utility.csproj", "{BE390893-2B2A-47FA-A3D9-3DAE477DF3C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Micua.Domain.Model", "Layer\Domain\Micua.Domain.Model\Micua.Domain.Model.csproj", "{E813612E-FAB0-450F-BC4D-704D14BE0475}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Micua.Domain.Repository", "Layer\Domain\Micua.Domain.Repository\Micua.Domain.Repository.csproj", "{B900E64C-F75B-4CDD-B17F-BCEB03138632}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Micua.Domain.Service", "Layer\Domain\Micua.Domain.Service\Micua.Domain.Service.csproj", "{65B8923C-751B-4ECD-9357-51D7C8E8BC6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Micua.Core", "Layer\Core\Micua.Core\Micua.Core.csproj", "{16171354-7A21-4447-9263-F1837CAC5D86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Micua.Application", "Layer\Presentation\Micua.Application\Micua.Application.csproj", "{1A8E189A-9CFD-431D-A90E-E9190AE97E20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Micua.MvcApp", "Layer\Presentation\Micua.MvcApp\Micua.MvcApp.csproj", "{AD6B25FB-5306-4918-9B2B-BD54422BD9ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Micua.UnitTest", "Test\Micua.UnitTest\Micua.UnitTest.csproj", "{6ECDF98E-8CAF-4B79-9FAE-D406A278ABCD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.3-Plugins", "3.3-Plugins", "{2FFDE83F-80E0-42C7-9EF5-FD3663E06403}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Micua.HelperApp", "Layer\Helpers\Micua.HelperApp\Micua.HelperApp.csproj", "{D15F31A7-A845-45AC-A900-A20C36BCE191}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Micua.Plugins.Demo", "Layer\Plugins\Micua.Plugins.Demo\Micua.Plugins.Demo.csproj", "{F4B27E98-5E8E-4615-814F-5AA7D5649FB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Micua.Plugins.Admin", "Layer\Plugins\Micua.Plugins.Admin\Micua.Plugins.Admin.csproj", "{9B6B922B-6E85-4E90-AE2A-29593B332849}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Micua.Plugins.Account", "Layer\Plugins\Micua.Plugins.Account\Micua.Plugins.Account.csproj", "{A8C16080-6134-4C8B-A7FA-C227B5534234}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Micua.Plugins.Blog", "Layer\Plugins\Micua.Plugins.Blog\Micua.Plugins.Blog.csproj", "{ADD2CD34-AE84-4A4B-834A-5F6B73197F75}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE390893-2B2A-47FA-A3D9-3DAE477DF3C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE390893-2B2A-47FA-A3D9-3DAE477DF3C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE390893-2B2A-47FA-A3D9-3DAE477DF3C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE390893-2B2A-47FA-A3D9-3DAE477DF3C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E813612E-FAB0-450F-BC4D-704D14BE0475}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E813612E-FAB0-450F-BC4D-704D14BE0475}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E813612E-FAB0-450F-BC4D-704D14BE0475}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E813612E-FAB0-450F-BC4D-704D14BE0475}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B900E64C-F75B-4CDD-B17F-BCEB03138632}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B900E64C-F75B-4CDD-B17F-BCEB03138632}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B900E64C-F75B-4CDD-B17F-BCEB03138632}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B900E64C-F75B-4CDD-B17F-BCEB03138632}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65B8923C-751B-4ECD-9357-51D7C8E8BC6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65B8923C-751B-4ECD-9357-51D7C8E8BC6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65B8923C-751B-4ECD-9357-51D7C8E8BC6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65B8923C-751B-4ECD-9357-51D7C8E8BC6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16171354-7A21-4447-9263-F1837CAC5D86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16171354-7A21-4447-9263-F1837CAC5D86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16171354-7A21-4447-9263-F1837CAC5D86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16171354-7A21-4447-9263-F1837CAC5D86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A8E189A-9CFD-431D-A90E-E9190AE97E20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A8E189A-9CFD-431D-A90E-E9190AE97E20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A8E189A-9CFD-431D-A90E-E9190AE97E20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A8E189A-9CFD-431D-A90E-E9190AE97E20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD6B25FB-5306-4918-9B2B-BD54422BD9ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD6B25FB-5306-4918-9B2B-BD54422BD9ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD6B25FB-5306-4918-9B2B-BD54422BD9ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD6B25FB-5306-4918-9B2B-BD54422BD9ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ECDF98E-8CAF-4B79-9FAE-D406A278ABCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ECDF98E-8CAF-4B79-9FAE-D406A278ABCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ECDF98E-8CAF-4B79-9FAE-D406A278ABCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ECDF98E-8CAF-4B79-9FAE-D406A278ABCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D15F31A7-A845-45AC-A900-A20C36BCE191}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D15F31A7-A845-45AC-A900-A20C36BCE191}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D15F31A7-A845-45AC-A900-A20C36BCE191}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D15F31A7-A845-45AC-A900-A20C36BCE191}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4B27E98-5E8E-4615-814F-5AA7D5649FB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4B27E98-5E8E-4615-814F-5AA7D5649FB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4B27E98-5E8E-4615-814F-5AA7D5649FB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4B27E98-5E8E-4615-814F-5AA7D5649FB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B6B922B-6E85-4E90-AE2A-29593B332849}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B6B922B-6E85-4E90-AE2A-29593B332849}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B6B922B-6E85-4E90-AE2A-29593B332849}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B6B922B-6E85-4E90-AE2A-29593B332849}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8C16080-6134-4C8B-A7FA-C227B5534234}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8C16080-6134-4C8B-A7FA-C227B5534234}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8C16080-6134-4C8B-A7FA-C227B5534234}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8C16080-6134-4C8B-A7FA-C227B5534234}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADD2CD34-AE84-4A4B-834A-5F6B73197F75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADD2CD34-AE84-4A4B-834A-5F6B73197F75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADD2CD34-AE84-4A4B-834A-5F6B73197F75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADD2CD34-AE84-4A4B-834A-5F6B73197F75}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E086BC9B-AEC1-4268-8981-F99073EC84AB} = {E08E0235-0E09-44A1-831C-0C4206438F17}
+		{34877268-AFCA-496D-A1AC-88E779D3AE4D} = {E08E0235-0E09-44A1-831C-0C4206438F17}
+		{784AE9A1-655C-4B80-B9F2-7D8A1A24C1DA} = {E08E0235-0E09-44A1-831C-0C4206438F17}
+		{86B23C53-C2D7-45BC-B657-7D6DCB9FF319} = {E08E0235-0E09-44A1-831C-0C4206438F17}
+		{BE390893-2B2A-47FA-A3D9-3DAE477DF3C1} = {E086BC9B-AEC1-4268-8981-F99073EC84AB}
+		{E813612E-FAB0-450F-BC4D-704D14BE0475} = {34877268-AFCA-496D-A1AC-88E779D3AE4D}
+		{B900E64C-F75B-4CDD-B17F-BCEB03138632} = {34877268-AFCA-496D-A1AC-88E779D3AE4D}
+		{65B8923C-751B-4ECD-9357-51D7C8E8BC6E} = {34877268-AFCA-496D-A1AC-88E779D3AE4D}
+		{16171354-7A21-4447-9263-F1837CAC5D86} = {784AE9A1-655C-4B80-B9F2-7D8A1A24C1DA}
+		{1A8E189A-9CFD-431D-A90E-E9190AE97E20} = {86B23C53-C2D7-45BC-B657-7D6DCB9FF319}
+		{AD6B25FB-5306-4918-9B2B-BD54422BD9ED} = {86B23C53-C2D7-45BC-B657-7D6DCB9FF319}
+		{6ECDF98E-8CAF-4B79-9FAE-D406A278ABCD} = {F51ACB11-A2E9-4DCB-AAE2-D8E9F87DDFA4}
+		{2FFDE83F-80E0-42C7-9EF5-FD3663E06403} = {E08E0235-0E09-44A1-831C-0C4206438F17}
+		{D15F31A7-A845-45AC-A900-A20C36BCE191} = {86B23C53-C2D7-45BC-B657-7D6DCB9FF319}
+		{F4B27E98-5E8E-4615-814F-5AA7D5649FB8} = {2FFDE83F-80E0-42C7-9EF5-FD3663E06403}
+		{9B6B922B-6E85-4E90-AE2A-29593B332849} = {2FFDE83F-80E0-42C7-9EF5-FD3663E06403}
+		{A8C16080-6134-4C8B-A7FA-C227B5534234} = {2FFDE83F-80E0-42C7-9EF5-FD3663E06403}
+		{ADD2CD34-AE84-4A4B-834A-5F6B73197F75} = {2FFDE83F-80E0-42C7-9EF5-FD3663E06403}
+	EndGlobalSection
+EndGlobal

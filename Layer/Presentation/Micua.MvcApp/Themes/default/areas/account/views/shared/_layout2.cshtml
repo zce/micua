@@ -1,0 +1,476 @@
+﻿@{ Layout = null; }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title &lsaquo; @SiteInfo("site_name") - Powered by @Generator</title>
+    <style>
+        html {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            font-family: "Microsoft YaHei";
+            background-color: #444349;
+            font-weight: 300;
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            padding-top: 120px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0074a2;
+        }
+
+            a:hover {
+                color: #f87982;
+            }
+
+        .login-bg > * {
+            opacity: 0.5;
+            display: block;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #login_form {
+            padding: 20px 30px 30px;
+            width: 340px;
+            background: #fff;
+            margin: auto;
+            border-radius: 3px;
+            box-shadow: 0 3px 3px rgba(0,0,0,.3);
+        }
+
+        .prepare {
+            -moz-transform: scale(0);
+            -webkit-transform: scale(0);
+            -o-transform: scale(0);
+            -ms-transform: scale(0);
+            transform: scale(0);
+            -moz-transition: all .4s ease-in-out;
+            -webkit-transition: all .4s ease-in-out;
+            -o-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+        }
+
+        .loaded {
+            -moz-transform: scale(1);
+            -webkit-transform: scale(1);
+            -o-transform: scale(1);
+            -ms-transform: scale(1);
+            transform: scale(1);
+        }
+
+        #login_form h3 {
+            font-size: 26px;
+            line-height: 30px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin: 5px 0 20px;
+            color: #999;
+            text-align: center;
+        }
+
+        .avator {
+            display: block;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            width: 96px;
+            height: 96px;
+        }
+
+        #error_info {
+            display: none;
+            border-left: 4px solid #fe4e5b;
+            background: #fff;
+            box-shadow: 0 1px 5px 0 rgba(0,0,0,.1);
+            margin-bottom: 10px;
+            padding: 12px;
+            font-size: 12px;
+        }
+
+        #login_form > input[placeholder] {
+            display: block;
+            background: #fbfbfb;
+            font-size: 20px;
+            line-height: 36px;
+            padding: 5px 10px;
+            margin: 5px 0 15px;
+            width: 318px;
+            border: 1px solid #ddd;
+            box-shadow: inset 0 1px 2px rgba(0,0,0,.07);
+            background-color: #fff;
+            color: #333;
+            -webkit-transition: .05s border-color ease-in-out;
+            -moz-transition: .05s border-color ease-in-out;
+            -o-transition: .05s border-color ease-in-out;
+            transition: .05s border-color ease-in-out;
+        }
+
+        #login_form > label:last-child {
+            font-size: 12px;
+        }
+
+        #login_form > label > input {
+            border: 1px solid #bbb;
+            height: 15px;
+            margin: -3px 4px 0 0;
+            vertical-align: middle;
+            width: 15px;
+        }
+
+        #login_form > button {
+            font-family: "Microsoft YaHei";
+            cursor: pointer;
+            width: 100%;
+            height: 45px;
+            background: #fe4e5b;
+            border: none;
+            font-size: 18px;
+            line-height: 45px;
+            letter-spacing: 3px;
+            color: #fff;
+            position: relative;
+            margin-top: 15px;
+            -moz-transition: all .2s ease-in;
+            -webkit-transition: all .2s ease-in;
+            -o-transition: all .2s ease-in;
+            transition: all .2s ease-in;
+        }
+
+            #login_form > button:hover {
+                background: #f87982;
+                color: #c0c0c0;
+            }
+    </style>
+</head>
+<body>
+    <div class="login-bg">
+        @*<video class="login-bg" loop="loop" autoplay="autoplay">
+                <source src="~/contents/assets/img/fun.mp4" type="video/mp4" />
+            </video>*@
+        <canvas id="bg_canvas" />
+        <script>
+            var frameRate = 30;
+            var increment = 0.5;
+            var max = 5;
+            var min = 1;
+
+            // 先拿到canvas 的 Dom对象
+            var canvas = document.getElementById('bg_canvas');
+            canvas.width = canvas.clientWidth;
+            canvas.height = canvas.clientHeight;
+            canvas.style.backgroundColor = '#444349';
+            // 拿到绘图上下文对象
+            var context = canvas.getContext('2d');
+
+
+            var dots = [];
+            for (var i = getRangeRandom(200, 300) ; i >= 0 ; i--) {
+                var color;
+                switch (i % 5) {
+                    case 0:
+                        color = "#C2F012";
+                        break;
+                    case 1:
+                        color = "#87F2D4";
+                        break;
+                    case 2:
+                        color = "#C1E6E2";
+                        break;
+                    case 3:
+                        color = "#C2CDCF";
+                        break;
+                    case 4:
+                        color = "#679EB8";
+                        break;
+                }
+                var r = getRangeRandom(min, max);
+                var dot = {
+                    position: { x: getRangeRandom(0, canvas.width), y: getRangeRandom(0, canvas.height) },
+                    velocity: { x: 0, y: 0 },
+                    style: color,
+                    radius: r,
+                    increase: r < max / 2
+                }
+                dots.push(dot);
+            }
+
+            function update() {
+                each(function (i, item) {
+                    // 闪烁
+                    if (item.increase) {
+                        item.radius += increment;
+                        if (item.radius > max) {
+                            item.increase = false;
+                        }
+                    } else {
+                        item.radius -= increment;
+                        if (item.radius < min) {
+                            item.increase = true;
+                        }
+                    }
+                    // 移动
+                    //item.position.x += dots[i].velocity.x;
+                    //item.position.y += dots[i].velocity.y;
+                    //item.velocity.y += 1;
+                    //if (item.position.y >= canvas.height - item.radius) {
+                    //    item.position.y = canvas.height - item.radius;
+                    //    item.velocity.y = -item.velocity.y * 0.5;
+                    //} else if (item.position.y <= item.radius) {
+                    //    item.position.y = item.radius;
+                    //    item.velocity.y = -item.velocity.y*0.5;
+                    //}
+                    //if (item.position.x >= canvas.width - item.radius) {
+                    //    item.position.x = canvas.width - item.radius;
+                    //    item.velocity.x = -item.velocity.x * 0.5;
+                    //} else if (item.position.x <= item.radius) {
+                    //    item.position.x = item.radius;
+                    //    item.velocity.x = -item.velocity.x * 0.5;
+                    //}
+                });
+            }
+
+            function render() {
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                each(function (i, item) {
+                    context.fillStyle = item.style;
+                    context.beginPath();
+                    context.arc(item.position.x, item.position.y, item.radius, 0, 2 * Math.PI);
+                    context.closePath();
+                    context.fill();
+                });
+            }
+
+            function each(func) {
+                for (var i = 0; i < dots.length; i++) {
+                    func(i, dots[i]);
+                }
+            }
+
+            setInterval(function () {
+                update();
+                render();
+            }, 1000 / frameRate);
+
+            function getRangeRandom(min, max) {
+                return parseInt(Math.random() * (max - min) + min);
+            }
+        </script>
+
+        @*<script>
+                var canvas = document.getElementById('bg_canvas');
+                canvas.style.backgroundColor = '#444349';
+                var width = canvas.clientWidth;
+                var height = canvas.clientHeight;
+                canvas.width = width;
+                canvas.height = height;
+                var context = canvas.getContext('2d');
+                context.clearRect(0, 0, width, height);
+                for (var i = 0; i < parseInt(Math.random() * (5000 - 1000 + 1) + 1000) ; i++) {
+                    switch (i % 5) {
+                        case 0:
+                            context.fillStyle = "#C2F012";
+                            break;
+                        case 1:
+                            context.fillStyle = "#87F2D4";
+                            break;
+                        case 2:
+                            context.fillStyle = "#C1E6E2";
+                            break;
+                        case 3:
+                            context.fillStyle = "#C2CDCF";
+                            break;
+                        case 4:
+                            context.fillStyle = "#679EB8";
+                            break;
+                    }
+                    //context.fillStyle = "#FF0000";
+                    //context.fillRect(Math.random() * (width + 1), Math.random() * (height + 1), Math.random() * 2, Math.random() * 2);
+                    context.beginPath();
+                    context.arc(Math.random() * (width + 1), Math.random() * (height + 1), Math.random() * 10, 0, Math.PI * 2, false);
+                    context.closePath();
+                    context.fill();
+                }
+            </script>*@
+    </div>
+    @RenderBody()
+</body>
+</html>
+<script src="/contents/assets/lib/jquery/jquery-1.11.0.js"></script>
+@RenderSection("Scripts", false)
+@*<script src="/contents/assets/lib/jquery/jquery-1.11.0.min.js"></script>*@
+@*<script>
+        //var $loginForm = $('#login_form').addClass('loaded').submit(function () {
+        //    var data = $loginForm.serializeArray();//.serialize(); //序列化表单元素
+        //    $(data).each(function (i, item) {
+        //        //if (true) {
+
+        //        //}
+        //    });
+        //    $.post($loginForm.attr('action'), data, function (res) {
+        //        if (res.status) {
+        //            window.location.href = res.redirect;
+        //        } else {
+        //            $('#error_info').html('<strong>错误</strong>：' + res.message).fadeIn();
+        //        }
+        //    });
+        //    return false;
+        //});
+
+
+        //}, 1000);
+
+        //$(function () {
+
+        //    /**
+        //     * 正则检验邮箱
+        //     * email 传入邮箱
+        //     * return true 表示验证通过
+        //     */
+        //    function check_email(email) {
+        //        if (/^[\w\-\.]+@@[\w\-]+(\.[a-zA-Z]{2,4}){1,2}$/.test(email)) return true;
+        //    }
+
+        //    //input 按键事件
+        //    $('input[name]').keyup(function (e) {
+        //        //禁止输入空格  把空格替换掉
+        //        if ($(this).attr('name') == 'pass' && e.keyCode == 32) {
+        //            $(this).val(function (i, v) {
+        //                return $.trim(v);
+        //            });
+        //        }
+        //        if ($.trim($(this).val()) != '') {
+        //            $(this).nextAll('span').eq(0).css({ display: 'none' });
+        //        }
+        //    });
+
+        //    //错误信息
+        //    var succ_arr = [];
+
+        //    //input失去焦点事件
+        //    $('input[name]').focusout(function (e) {
+
+        //        var msg = '';
+        //        if (!$.trim($(this).val())) {
+        //            if ($(this).attr('name') == 'name') {
+        //                succ_arr[0] = false;
+        //                msg = '登入名为空';
+        //            } else if ($(this).attr('name') == 'pass') {
+        //                succ_arr[1] = false;
+        //                msg = '密码为空';
+        //            }
+
+        //        } else {
+        //            if ($(this).attr('name') == 'name') {
+        //                succ_arr[0] = true;
+
+        //            } else if ($(this).attr('name') == 'pass') {
+        //                succ_arr[1] = true;
+
+        //            }
+        //        }
+        //        var a = $(this).nextAll('span').eq(0);
+        //        a.css({ display: 'block' }).text(msg);
+        //    });
+        //    //Ajax用户注册
+        //    $('button[type="button"]').click(function () {
+        //        $('input[name]').focusout();  //让所有的input标记失去一次焦点 来设置msg信息
+        //        for (x in succ_arr) { if (succ_arr[x] == false) return; }
+        //        // $('#login').removeClass('current');
+        //        var data = $('#login').serialize(); //序列化表单元素
+
+
+
+        //        /**
+        //             有兴趣的可以到这里 自行发送Ajax请求 实现注册功能
+        //        */
+
+        //    });
+        //});
+
+        //function Star() {
+        //    _this = this;
+        //    _this.x = -1;
+        //    _this.y = -1;
+        //    _this.color = "#FFFF00";
+        //    _this.speed = 25;
+        //    _this.m = 0;
+        //    _this.n = 0;
+        //    _this.s = 20;//边长
+
+
+        //    //随机颜色
+        //    this.getColor = function () {
+        //        _this.r = Math.ceil(Math.random() * 255);
+        //        _this.g = Math.ceil(Math.random() * 255);
+        //        _this.b = Math.ceil(Math.random() * 255);
+        //        _this.color = "rgb(" + _this.r + "," + _this.g + "," + _this.b + ")";
+        //        return _this.color;
+        //    }
+
+
+        //    this.getSide = function () {
+        //        _this.s = Math.ceil(Math.random() * 10 + 5);
+        //        return _this.s;
+        //    }
+
+
+        //    this.drawStar = function (cxt) {
+        //        _this.m = Math.ceil(Math.random() * 800 + 100);
+        //        _this.n = Math.ceil(Math.random() * 400 + 10);
+        //        var dig = Math.PI / 5 * 4;
+        //        _this.s = this.getSide();
+        //        _this.color = this.getColor();
+        //        cxt.beginPath();
+        //        cxt.fillStyle = _this.color;
+        //        for (var i = 0; i < 5; i++) {
+        //            _this.x = Math.sin(i * dig);
+        //            _this.y = Math.cos(i * dig);
+        //            cxt.lineTo(_this.m + _this.x * _this.s, _this.n + _this.y * _this.s);
+        //        }
+        //        //cxt.translate(_this.mx, _this.my);
+        //        //cxt.rotate(Math.PI / 8); //旋转
+        //        cxt.closePath();
+        //        cxt.fill();
+        //        cxt.save();
+
+
+
+
+        //    }
+
+
+        //    this.drawAllstar = function (max, cxt, height, width) {
+        //        cxt.clearRect(0, 0, height, width);
+        //        cxt.save();
+        //        for (var i = 0; i < max; i++) {
+        //            this.drawStar(cxt);
+        //        }
+        //        cxt.restore();
+        //    }
+
+
+        //    this.init = function (max, cxt, width, height) {
+        //        this.getSide();
+        //        //this.drawAllstar(max, cxt, height, width);
+        //    }
+
+
+        //}
+        //var canvas = document.getElementById('bg_canvas');
+        //var cxt = canvas.getContext('2d');
+        //var stars = new Star();
+        //setInterval(function () {
+        //    stars.drawAllstar(50, cxt, 1000, 800);
+        //}, 2000);
+    </script>*@

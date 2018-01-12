@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>制作我的第一个网页</title>
+    <script src="../assets/swf/swfobject.js"></script>
+    <script type="text/javascript">
+        function uploadevent(status) {
+            status += '';
+            switch (status) {
+                case '1':
+                    alert('upload succeed!');
+                    var time = new Date().getTime();
+                    document.getElementById('avatar_priview').innerHTML = 'Avatar Priview: <img src="php/avatar_1.jpg?' + time + '"/> <br/> Source Image: <img src="php/avatar_2.jpg?' + time + '"/>';
+                    break;
+                case '2':
+                    if (confirm('js call upload')) {
+                        return 1;
+                    } else {
+                        return 0;
+                    }
+                    break;
+                case '-1':
+                    alert('cancel!');
+                    window.location.href = '#';
+                    break;
+                case '-2':
+                    alert('upload failed!');
+                    window.location.href = '#';
+                    break;
+                default:
+                    alert(typeof (status) + ' ' + status);
+            }
+        }
+
+        var flashvars = {
+            'jsfunc':'uploadevent',
+            'imgUrl': '../assets/img/temp/avatar.png',
+            'pid':'',
+            'uploadSrc':true,
+            'showBrow':true,
+            'showCame':true,
+            'uploadUrl':'hello.html'
+        };
+
+        var params = {
+            menu: 'false',
+            scale: 'noScale',
+            allowFullscreen: 'true',
+            allowScriptAccess: 'always',
+            wmode:'transparent',
+            bgcolor: '#FFFFFF'
+        };
+
+        var attributes = {
+            id:'avatar'
+        };
+
+        swfobject.embedSWF('../assets/swf/avatar.swf', 'altContent', '650', '500', '9.0.0', '../assets/swf/expressInstall.swf', flashvars, params, attributes);
+    </script>
+</head>
+<body>
+    <h1>制作我的第一个网页</h1>
+    <div id="altContent"></div>
+    <div>
+        <input type="button" onclick="swfobject.getObjectById('avatar').jscall_updateAvatar();" value="JS Call Upload" />
+    </div>
+    <div id="avatar_priview"></div>
+</body>
+</html>

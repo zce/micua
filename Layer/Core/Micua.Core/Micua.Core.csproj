@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{16171354-7A21-4447-9263-F1837CAC5D86}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Micua.Core</RootNamespace>
+    <AssemblyName>Micua.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\..\..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception">
+      <HintPath>..\..\..\packages\Unity.Interception.3.5.1404.0\lib\Net45\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration">
+      <HintPath>..\..\..\packages\Unity.Interception.3.5.1404.0\lib\Net45\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention">
+      <HintPath>..\..\..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NVelocity">
+      <HintPath>..\..\..\packages\NVelocity.1.0.3\lib\NVelocity.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bundle\BundleConfig.cs" />
+    <Compile Include="Caching\CacheHelper.cs" />
+    <Compile Include="Caching\DefaultCacheProvider.cs" />
+    <Compile Include="Caching\ICacheProvider.cs" />
+    <Compile Include="Caching\Interception\CachingCallHandler.cs" />
+    <Compile Include="Caching\Interception\CachingCallResultAttribute.cs" />
+    <Compile Include="Caching\Interception\CachingInterceptor.cs" />
+    <Compile Include="Caching\Output\CacheItem.cs" />
+    <Compile Include="Caching\Output\CacheItem1.cs" />
+    <Compile Include="Caching\Output\Memcached.cs" />
+    <Compile Include="Caching\Output\MicuaOutputCacheModule.cs" />
+    <Compile Include="Caching\Output\MicuaOutPutCacheProvider.cs" />
+    <Compile Include="Caching\Output\OutputCacheModule.cs" />
+    <Compile Include="Caching\Output\OutPutCacheProvider.cs" />
+    <Compile Include="ComponentModel\DictionaryWapper.cs" />
+    <Compile Include="ComponentModel\GenericListTypeConverter.cs" />
+    <Compile Include="ComponentModel\Theme.cs" />
+    <Compile Include="ComponentModel\WriteLockDisposable.cs" />
+    <Compile Include="Extension\HtmlExtensions.cs" />
+    <Compile Include="Extension\UrlExtensions.cs" />
+    <Compile Include="Info.cs" />
+    <Compile Include="IoC\Castle\CastleDependencyResolver.cs" />
+    <Compile Include="IoC\DependencyResolverFactory.cs" />
+    <Compile Include="IoC\IDependencyResolver.cs" />
+    <Compile Include="IoC\IDependencyResolverFactory.cs" />
+    <Compile Include="IoC\IoCHelper.cs" />
+    <Compile Include="IoC\ResolverControllerFactory.cs" />
+    <Compile Include="IoC\Spring\SpringDependencyResolver.cs" />
+    <Compile Include="IoC\Unity\MicuaHandler.cs" />
+    <Compile Include="IoC\Unity\MicuaRouteHandler.cs" />
+    <Compile Include="IoC\Unity\UnityContext.cs" />
+    <Compile Include="IoC\Unity\UnityControllerFactory.cs" />
+    <Compile Include="IoC\Unity\UnityDependencyResolver.cs" />
+    <Compile Include="Localization\ILocalizationProvider.cs" />
+    <Compile Include="Localization\LocalizationHelper.cs" />
+    <Compile Include="Localization\XmlLocalizationProvider.cs" />
+    <Compile Include="Plugin\BuildManagerWrapper.cs" />
+    <Compile Include="Plugin\IBuildManager.cs" />
+    <Compile Include="Plugin\IPlugin.cs" />
+    <Compile Include="Plugin\PluginBase.cs" />
+    <Compile Include="Plugin\PluginContext.cs" />
+    <Compile Include="Plugin\PluginLoader.cs" />
+    <Compile Include="Plugin\PluginManager.cs" />
+    <Compile Include="Plugin\PluginViewEngine.cs" />
+    <Compile Include="Plugin\TypeCacheSerializer.cs" />
+    <Compile Include="Plugin\TypeCacheUtil.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Routing\AreaRegistrationContextExtensions.cs" />
+    <Compile Include="Routing\Configuration\Area.cs" />
+    <Compile Include="Routing\Configuration\AreaCollection.cs" />
+    <Compile Include="Routing\Configuration\Constraint.cs" />
+    <Compile Include="Routing\Configuration\ConstraintCollection.cs" />
+    <Compile Include="Routing\Configuration\Ignore.cs" />
+    <Compile Include="Routing\Configuration\IgnoreCollection.cs" />
+    <Compile Include="Routing\Configuration\Map.cs" />
+    <Compile Include="Routing\Configuration\MapCollection.cs" />
+    <Compile Include="Routing\Configuration\Namespace.cs" />
+    <Compile Include="Routing\Configuration\NamespaceCollection.cs" />
+    <Compile Include="Routing\Configuration\Parameter.cs" />
+    <Compile Include="Routing\Configuration\ParameterCollection.cs" />
+    <Compile Include="Routing\Configuration\RouteConfigurationSection.cs" />
+    <Compile Include="Routing\DomainData.cs" />
+    <Compile Include="Routing\Filter\RemoveDuplicateUrlAttribute.cs" />
+    <Compile Include="Routing\MicuaRoute.cs" />
+    <Compile Include="Routing\RouteCollectionExtensions.cs" />
+    <Compile Include="Routing\RouteConfig.cs" />
+    <Compile Include="Session\DefaultSessionProvider.cs" />
+    <Compile Include="Session\ISessionProvider.cs" />
+    <Compile Include="Session\RuntimeSessionProvider.cs" />
+    <Compile Include="Session\SessionHelper.cs" />
+    <Compile Include="Tracing\Filter\ErrorFilter.cs" />
+    <Compile Include="Tracing\Filter\TracingFilter.cs" />
+    <Compile Include="Tracing\Interception\TracingCallAttribute.cs" />
+    <Compile Include="Tracing\Interception\TracingCallHandler.cs" />
+    <Compile Include="Tracing\LogHelper.cs" />
+    <Compile Include="Tracing\Module\TracingModule.cs" />
+    <Compile Include="ViewEngine\ExtensionDuck.cs" />
+    <Compile Include="ViewEngine\FileResourceLoaderEx.cs" />
+    <Compile Include="ViewEngine\HtmlExtensionDuck.cs" />
+    <Compile Include="ViewEngine\MicuaViewEngine.cs" />
+    <Compile Include="ViewEngine\NVelocityView.cs" />
+    <Compile Include="ViewEngine\NVelocityView1.cs" />
+    <Compile Include="ViewEngine\NVelocityViewEngine.cs" />
+    <Compile Include="ViewEngine\NVelocityViewEngine1.cs" />
+    <Compile Include="ViewEngine\UrlExtensionDuck.cs" />
+    <Compile Include="ViewEngine\ViewEngineConfig.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="ViewEngine\VM_global_library.vm" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\Micua.Infrastructure.Utility\Micua.Infrastructure.Utility.csproj">
+      <Project>{be390893-2b2a-47fa-a3d9-3dae477df3c1}</Project>
+      <Name>Micua.Infrastructure.Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

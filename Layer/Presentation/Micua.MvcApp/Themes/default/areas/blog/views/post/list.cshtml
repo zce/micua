@@ -1,0 +1,11 @@
+﻿@model IEnumerable<PostExcerpt>
+@foreach (var item in Model)
+{
+    <article>
+        <h2><a href="@Url.Action("Detail", "Post", new { item = item.Slug })">@item.Title</a></h2>
+        <p>
+            @Html.Raw(item.Excerpt)
+        </p>
+    </article>
+}
+@RenderPagination(null, null, ViewBag.TotalPages, ViewBag.CurrentPage)

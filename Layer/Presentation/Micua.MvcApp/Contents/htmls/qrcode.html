@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<body>
+    <div id="qrcode"></div>
+    <input type="text" id="txt_content" value="" />
+    <input type="button" id="btn_go" value="生成" />
+</body>
+</html>
+<script src="../assets/lib/jquery/jquery-1.11.0.js"></script>
+<script src="../assets/lib/qrcode/jquery.qrcode.min.js"></script>
+<script>
+    function toUtf8(str) {
+        var out, i, len, c;
+        out = "";
+        len = str.length;
+        for (i = 0; i < len; i++) {
+            c = str.charCodeAt(i);
+            if ((c >= 0x0001) && (c <= 0x007F)) {
+                out += str.charAt(i);
+            } else if (c > 0x07FF) {
+                out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
+                out += String.fromCharCode(0x80 | ((c >> 6) & 0x3F));
+                out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+            } else {
+                out += String.fromCharCode(0xC0 | ((c >> 6) & 0x1F));
+                out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+            }
+        }
+        return out;
+    }
+    $('#btn_go').click(function () {
+        var txt = $('#txt_content').val();
+        $('#qrcode').qrcode({
+            text: toUtf8(txt),
+            render:'table'
+        });
+    });
+</script>

@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title &lsaquo; @SiteInfo("site_name") - Powered by @Generator</title>
+    <link href="/assets/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="/assets/css/components.css" rel="stylesheet" />
+    <link href="/assets/lib/animate/animate.css" rel="stylesheet" />
+    <style>html{width:100%;height:100%;overflow:hidden}body{border:1px solid transparent;background-color:#444349;font-family:"Microsoft YaHei";font-weight:300;font-size:14px;color:#666}.background{position:absolute;width:100%;height:100%;opacity:.3;z-index:-1}.form-main{background:#fff;padding:20px 30px 30px;max-width:80%;margin:40px auto 0;border-radius:3px;box-shadow:0 0 15px rgba(0,0,0,.3)}@@media(min-width:760px){.form-main{max-width:380px;margin:140px auto 0}}.form-main h2{text-align:center;font-size:26px}.form-main .avator{display:block;margin:0 auto 30px;border-radius:50%;width:44%;border:1px solid #f5f5f5;padding:4px;overflow:hidden}.form-main .avator img{width:100%;z-index:-1}.form-main h2,.form-main .checkbox{margin-bottom:20px}.form-main .checkbox{font-weight:normal}.form-main .form-control{position:relative;height:auto;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:10px}.form-main .form-control:focus{z-index:2}</style>
+    @RenderSection("Styles", false)
+</head>
+<body>
+    <!-- 背景区域 -->
+    <div class="background">
+        <img src="/assets/img/background/slide3.jpg" style="position: absolute; z-index: -1; width: 100%;" />
+        <canvas id="bg_canvas" style="width:100%;height:100%"></canvas>
+        <script>function begin() { var i, t, n, r, u; for (canvas.width = canvas.clientWidth, canvas.height = canvas.clientHeight, i = canvas.clientWidth / 5, dots = [], t = getRangeRandom(i - 100, i) ; t >= 0; t--) { switch (t % 5) { case 0: n = "#C2F012"; break; case 1: n = "#87F2D4"; break; case 2: n = "#C1E6E2"; break; case 3: n = "#C2CDCF"; break; case 4: n = "#679EB8" } r = getRangeRandom(min, max); u = { position: { x: getRangeRandom(0, canvas.width), y: getRangeRandom(0, canvas.height) }, velocity: { x: 0, y: 0 }, style: n, radius: r, increase: r < max / 2 }; dots.push(u) } } function update() { each(function (n, t) { t.increase ? (t.radius += increment, t.radius > max && (t.increase = !1)) : (t.radius -= increment, t.radius < min && (t.increase = !0)) }) } function render() { context.clearRect(0, 0, canvas.width, canvas.height); each(function (n, t) { context.fillStyle = t.style; context.beginPath(); context.arc(t.position.x, t.position.y, t.radius, 0, 2 * Math.PI); context.closePath(); context.fill() }) } function each(n) { for (var t = 0; t < dots.length; t++) n(t, dots[t]) } function getRangeRandom(n, t) { return parseInt(Math.random() * (t - n) + n) } var frameRate = 20, increment = .5, max = 5, min = 1, canvas = document.getElementById("bg_canvas"), context = canvas.getContext("2d"), dots = []; begin(); setInterval(function () { update(); render() }, 1e3 / frameRate); window.onresize = function () { begin() };</script>
+    </div>
+    @RenderBody()
+</body>
+</html>
+<script src="/assets/lib/jquery/jquery-2.1.3.js"></script>
+<script src="/assets/lib/bootstrap/js/bootstrap.js"></script>
+<script src="/assets/js/plugins.js"></script>
+@RenderSection("Scripts", false)

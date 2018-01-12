@@ -1,0 +1,33 @@
+﻿<#@ template language="C#" hostspecific="true"#><#@ include file="../../../Utilities.ttinclude"#><#@ output extension=".cs"#>namespace Micua.Domain.Model
+{
+    using System.Collections.Generic;
+
+    public class SampleData : System.Data.Entity.DropCreateDatabaseIfModelChanges<MicuaContext>
+    {
+<#foreach(var item in EntityTypes){#>
+        IEnumerable<<#=item.Name#>> <#=item.Name.ToLower()#>s;
+<#}#>
+        protected override void Seed(MicuaContext context)
+        {
+<#foreach(var item in EntityTypes){#>
+            // initialize <#=item.Name#> table
+            Init<#=item.Name#>s(context);
+<#}#>
+
+            context.SaveChanges();
+        }
+
+<#foreach(var item in EntityTypes){#>
+        /// <summary>
+        /// initialize <#=item.Name#> table
+        /// </summary>
+        /// <param name="context">database context</param>
+        private void Init<#=item.Name#>s(MicuaContext context)
+        {
+            <#=item.Name.ToLower()#>s = new List<<#=item.Name#>> { };
+            context.<#=item.Name#>s.AddRange(<#=item.Name.ToLower()#>s);
+        }
+<#}#>
+
+    }
+}

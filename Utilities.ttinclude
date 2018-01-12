@@ -1,0 +1,10 @@
+<#@ include file="EF.Utility.CS.ttinclude"#><#@ assembly name="$(SolutionDir)\Layer\Domain\Micua.Domain.Model\bin\Debug\Micua.Domain.Model.dll" #><#+ 
+	
+	public System.Collections.Generic.IEnumerable<Type> EntityTypes
+	{
+		get
+		{
+			return Micua.Domain.Model.EntityBase.EntityTypes;
+		}
+	}
+#>

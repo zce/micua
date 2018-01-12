@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://schemas.wedn.net/info/theme/2014" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="theme">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Name" type="xs:string" />
+        <xs:element name="Link" type="xs:string" />
+        <xs:element name="Author" type="xs:string" />
+        <xs:element name="AuthorLink" type="xs:string" />
+        <xs:element name="Description" type="xs:string" />
+        <xs:element name="Version" type="xs:decimal" />
+        <xs:element name="License" type="xs:string" />
+        <xs:element name="LicenseLink" type="xs:string" />
+        <xs:element name="Tags">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="string" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
